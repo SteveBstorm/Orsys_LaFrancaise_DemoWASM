@@ -1,0 +1,14 @@
+﻿<h3>Demo4Bis</h3>
+<p>Compteur incrémenter par OnAfterRender du parent : @Counter</p>
+<p>Compteur incrémenter par OnParameterSet : @MyValue</p>
+@code {
+    [Parameter]
+    public int Counter { get; set; }
+
+    public int MyValue { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        MyValue = Counter *2;
+    }
+}

@@ -1,0 +1,39 @@
+﻿@page "/demo5"
+<h3>Demo5</h3>
+<EditForm Model="MyMovieForm" 
+        OnInvalidSubmit="Invalid" 
+        OnValidSubmit="OnSubmit">
+    @*<DataAnnotationsValidator />*@
+    <ObjectGraphDataAnnotationsValidator />
+    <div class="form-control">
+        Titre : <InputText @bind-Value="MyMovieForm.Title"></InputText>
+        <ValidationMessage For="() => MyMovieForm.Title" />
+    </div>
+    <div class="form-control">
+        Titre : <InputDate @bind-Value="MyMovieForm.ReleaseDate"></InputDate>
+    </div>
+   
+
+    <div class="form-control">
+        Synospis : <InputText @bind-Value="MyMovieForm.Synopsis"></InputText>
+    </div>
+    <div class="form-control">
+        Note : <InputNumber @bind-Value="MyMovieForm.Note"></InputNumber>
+        <ValidationMessage For="() => MyMovieForm.Note" />
+
+    </div>
+
+    <div class="form-control">
+        Prénom Real : <InputText @bind-Value="MyMovieForm.Realisator.FirstName"></InputText>
+        <ValidationMessage For="() => MyMovieForm.Realisator.FirstName" />
+    </div>
+    <div class="form-control">
+        Nom Real : <InputText @bind-Value="MyMovieForm.Realisator.LastName"></InputText>
+        <ValidationMessage For="() => MyMovieForm.Realisator.LastName" />
+    </div>
+    <button>Valider</button>
+    <ValidationSummary />
+</EditForm>
+@code {
+
+}
