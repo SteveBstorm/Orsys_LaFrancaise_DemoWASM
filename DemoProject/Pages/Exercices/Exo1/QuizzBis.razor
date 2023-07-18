@@ -1,0 +1,7 @@
+﻿<h3>Bonjour @PlayerName, voici la question N° @Counter</h3>
+
+<h4>@CurrentQuestion</h4>
+<p>
+    <button class="btn btn-success" @onclick="@(() => SendResponse("oui"))">Oui</button>
+    <button class="btn btn-danger" @onclick="@(() => SendResponse("non"))">Non</button>
+</p>

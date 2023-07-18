@@ -1,0 +1,26 @@
+﻿@page "/exo1"
+<h3>Quizz</h3>
+
+@if(!GameIsFinished) {
+    @if (string.IsNullOrEmpty(PlayerName))
+    {
+        <p>
+            Votre nom : <input type="text" @bind-value="PlayerName" />
+        </p>
+    }
+    else
+    {
+        <QuizzBis PlayerName="@PlayerName"
+          NotifyEndGame="GameFinish"
+          NotifyResponse="SaveResponse" />
+    }
+}
+else {
+    <h3>Liste de réponse</h3>
+    @foreach(string s in Responses){
+        <p>@s</p>
+    }
+
+    <p>Merci d'avoir jouer</p>
+}
+
