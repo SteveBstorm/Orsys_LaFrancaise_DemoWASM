@@ -1,0 +1,30 @@
+﻿@page "/demo1"
+@*@inherits Demo1Base*@
+<h3>Demo1</h3>
+<h3>Hello people !!!</h3>
+
+
+
+@if(myBool){
+    <p>@MyValue</p>  
+    //One way Binding => Lecture de valeur
+    <p>@MyName</p>
+}
+else {
+    <p>rien à afficher</p>
+}
+
+<p>
+    <input type="number" @bind-value="MyValue" /> 
+    @*Two way Binding => Ecriture dans une propriété*@
+</p>
+
+<button @onclick="SwitchBool">Switch</button>
+@*Event Binding => Lier un event JS à une methode c#*@
+
+<button class="@(myBool ? "btn-success" : "btn-danger")" @onclick="() => SetMyValue(55)" disabled="@(MyValue == 42)">SetValue</button>
+@*Attribute Binding => Evaluation d'un attribut html en fonction de condition c#*@
+
+@code {
+    public int MyValue { get; set; } = 42;
+}
