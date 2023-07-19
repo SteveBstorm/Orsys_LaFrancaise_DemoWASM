@@ -8,7 +8,8 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 //Inscription des services
-builder.Services.AddSingleton<ArticleService>();
+//builder.Services.AddSingleton<ArticleService>();
+builder.Services.AddScoped<ArticleService_API>();
 //builder.Services.AddScoped<ArticleService>(); => Une instance par appel du client
 //builder.Services.AddTransient<ArticleService>(); => Une instance par appel au service
 
