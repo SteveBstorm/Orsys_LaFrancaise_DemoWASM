@@ -23,15 +23,16 @@ namespace DemoProject.Pages.Exercices.Exo2
 
             hubConnection.On("ArticleUpdate", async () =>
             {
-                Console.WriteLine("notif du hub");
+            
                 await GetItems();
-                StateHasChanged();
+                StateHasChanged(); //Notifier au composant qu'un render est nécessaire
 
             });
 
             await hubConnection.StartAsync();
 
-            await GetItems();
+            await hubConnection.SendAsync("NotifyArticleUpdate");
+           // await GetItems();
         }
 
         protected void SelectId(int id)

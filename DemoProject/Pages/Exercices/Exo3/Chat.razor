@@ -1,0 +1,30 @@
+﻿@page "/exo3"
+@using DemoProject.Models
+<h3>Chat</h3>
+
+<p>
+    Username : <input type="text" @bind-value="Username" />
+</p>
+<p>
+    Content : <input type="text" @bind-value="Content" />
+</p>
+<button class="btn btn-outline-primary" @onclick="SendMessage">Envoi</button>
+<button class="btn btn-outline-primary" @onclick="JoinGroup">Rejoindre </button>
+<button class="btn btn-outline-primary" @onclick="SendMessageToGroup">Envoi au groupe</button>
+
+
+<div style="border : black 1px solid;">
+    <ul>
+        @foreach(Message m in Messages){
+            <li>
+                <p>@m.SendDate</p>
+                @m.Username : @m.Content
+            </li>
+        }
+    </ul>
+
+</div>
+
+@code {
+
+}
