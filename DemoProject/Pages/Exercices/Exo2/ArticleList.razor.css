@@ -1,0 +1,24 @@
+﻿.content {
+    display : flex;
+    flex-direction :row;
+}
+
+.left {
+    padding : 0 10px 0 10px;
+    border : 2px black solid;
+    min-width : 400px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 0 10px;
+    min-width: 400px;
+}
+
+.detail {
+    border: 2px black solid;
+}
+.add {
+    border: 2px black solid;
+}

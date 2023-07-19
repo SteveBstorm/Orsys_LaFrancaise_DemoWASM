@@ -1,0 +1,25 @@
+﻿<h3>ArticleAdd</h3>
+<EditForm Model="NewArticle" OnValidSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-control-group">
+        <label class="form-label">Label</label>
+        <InputText class="form-control" @bind-Value="NewArticle.Label"/>
+        <ValidationMessage For="() => NewArticle.Label" />
+    </div>
+    <div class="form-control-group">
+        <label class="form-label">Prix</label>
+        <InputNumber class="form-control" @bind-Value="NewArticle.Price" />
+        <ValidationMessage For="() => NewArticle.Price" />
+    </div>
+    <div class="form-control-group">
+        <label class="form-label">Catégorie</label>
+        <InputText class="form-control" @bind-Value="NewArticle.Category" />
+    </div>
+    <div class="form-control-group">
+        <label class="form-label">Description</label>
+        <InputText class="form-control" @bind-Value="NewArticle.Description" />
+        <ValidationMessage For="() => NewArticle.Description" />
+    </div>
+    <button class="btn btn-outline-success" 
+            disabled="@(!context.IsModified() || !context.Validate())">Valider</button>
+</EditForm>

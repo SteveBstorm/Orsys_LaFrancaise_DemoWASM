@@ -1,0 +1,32 @@
+﻿@page "/exo2"
+<h3>ArticleList</h3>
+
+<div class="content">
+    <div class="left">
+        <div class="list-group">
+            @if(Articles is not null){
+                <Virtualize Items="Articles" Context="a">
+                    <div class="list-group-item">
+                        <label>@a.Label : @a.Price €</label>
+                        <button class="btn btn-outline-primary"
+                            @onclick="() => SelectId(a.Id)">
+                            Detail
+                        </button>
+                    </div>
+                </Virtualize>
+            }
+            
+        </div>
+    </div>
+    <div class="right">
+        <div class="add">
+            <ArticleAdd NotifyRegister="GetItems"/>
+        </div>
+        @if(SelectedId != 0){
+            <div class="detail">
+                <ArticleDetail currentId="SelectedId" />
+            </div>
+        }
+        
+    </div>
+</div>

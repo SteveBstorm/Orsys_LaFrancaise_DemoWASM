@@ -31,7 +31,7 @@
         Nom Real : <InputText @bind-Value="MyMovieForm.Realisator.LastName"></InputText>
         <ValidationMessage For="() => MyMovieForm.Realisator.LastName" />
     </div>
-    <button>Valider</button>
+    <button disabled=@(!context.Validate() || !context.IsModified())>Valider</button>
     <ValidationSummary />
 </EditForm>
 @code {
