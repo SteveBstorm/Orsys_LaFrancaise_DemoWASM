@@ -1,4 +1,14 @@
 ﻿@page "/counter"
+@using System.Security.Claims
+
+<AuthorizeView>
+    <Authorized>
+        <label class="text-success">L'utilisateur : @context.User.FindFirst(ClaimTypes.GivenName).Value est autorisé</label>
+    </Authorized>
+    <NotAuthorized>
+        <label class="text-danger">Utilisateur courant non autorisé</label>
+    </NotAuthorized>
+</AuthorizeView>
 
 <PageTitle>Counter</PageTitle>
 

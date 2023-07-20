@@ -1,5 +1,7 @@
 using DemoProject;
 using DemoProject.Services;
+using DemoProject.Tools;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -12,6 +14,10 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped<ArticleService_API>();
 //builder.Services.AddScoped<ArticleService>(); => Une instance par appel du client
 //builder.Services.AddTransient<ArticleService>(); => Une instance par appel au service
+
+
+builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<AuthenticationStateProvider, AuthProvider>();
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

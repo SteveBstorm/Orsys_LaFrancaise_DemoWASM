@@ -1,5 +1,7 @@
 ﻿using DemoProject.Models;
+using DemoProject.Tools;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
@@ -12,6 +14,9 @@ namespace DemoProject.Pages.Demo6
     {
         [Inject]
         public IJSRuntime _js { get; set; }
+
+        [Inject]
+        public IServiceProvider service { get; set; }
         public User UserLogin { get; set; }
         private HttpClient _httpClient;
         public Demo6()
@@ -32,6 +37,7 @@ namespace DemoProject.Pages.Demo6
                 {
                     string token = await message.Content.ReadAsStringAsync();
                     await _js.InvokeVoidAsync("localStorage.setItem", "token", token);
+                    ((AuthProvider)service.GetService<AuthenticationStateProvider>()).NotifyUserChanged();
                 }
             }
         }
