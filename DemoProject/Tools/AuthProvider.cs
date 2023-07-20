@@ -30,12 +30,12 @@ namespace DemoProject.Tools
 
             JwtSecurityToken jwt = new JwtSecurityToken(token);
 
-            foreach (Claim item in jwt.Claims)
-            {
-                claims.Add(item);
-            }
+            //foreach (Claim item in jwt.Claims)
+            //{
+            //    claims.Add(item);
+            //}
 
-            ClaimsIdentity currentUser = new ClaimsIdentity(claims, "MyAuthSystem");
+            ClaimsIdentity currentUser = new ClaimsIdentity(jwt.Claims, "MyAuthSystem");
             //CurrentUser = new ClaimsPrincipal(currentUser);
             return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(currentUser)));
         }
