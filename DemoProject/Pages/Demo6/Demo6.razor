@@ -1,18 +1,30 @@
 ﻿@page "/demo6"
 <h3>Login</h3>
+<AuthorizeView>
+    <Authorized>
+        
+        <button class="btn btn-danger" @onclick="Disconnect">Déconnexion</button>
+    </Authorized>
+    <NotAuthorized>
 
-<EditForm Model="UserLogin" OnSubmit="OnSubmit">
-    <p>
-        Username : <InputText @bind-Value="UserLogin.Username" />
-    </p>
-    <p>
-        Email : <InputText @bind-Value="UserLogin.Email" />
-    </p>
-    <p>
-        IsAdmin : <InputCheckbox @bind-Value="UserLogin.IsAdmin" />
-    </p>
-    <button class="btn">Valider</button>
-</EditForm>
+        <EditForm Model="UserLogin" OnSubmit="OnSubmit">
+            
+            <ChildContent Context="formContext">
+                <p>
+                    Username : <InputText @bind-Value="UserLogin.Username" />
+                </p>
+                <p>
+                    Email : <InputText @bind-Value="UserLogin.Email" />
+                </p>
+                <p>
+                    IsAdmin : <InputCheckbox @bind-Value="UserLogin.IsAdmin" />
+                </p>
+                <button class="btn">Valider</button>
+            </ChildContent>
+        </EditForm>
+    </NotAuthorized>
+</AuthorizeView>
+
 
 @code {
 

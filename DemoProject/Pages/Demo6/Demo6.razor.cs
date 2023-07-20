@@ -41,5 +41,12 @@ namespace DemoProject.Pages.Demo6
                 }
             }
         }
+
+        public async Task Disconnect()
+        {
+            await _js.InvokeVoidAsync("localStorage.clear");
+            ((AuthProvider)service.GetService<AuthenticationStateProvider>()).NotifyUserChanged();
+
+        }
     }
 }
