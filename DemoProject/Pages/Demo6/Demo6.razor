@@ -1,0 +1,19 @@
+﻿@page "/demo6"
+<h3>Login</h3>
+
+<EditForm Model="UserLogin" OnSubmit="OnSubmit">
+    <p>
+        Username : <InputText @bind-Value="UserLogin.Username" />
+    </p>
+    <p>
+        Email : <InputText @bind-Value="UserLogin.Email" />
+    </p>
+    <p>
+        IsAdmin : <InputCheckbox @bind-Value="UserLogin.IsAdmin" />
+    </p>
+    <button class="btn">Valider</button>
+</EditForm>
+
+@code {
+
+}
